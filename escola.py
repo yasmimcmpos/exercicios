@@ -39,32 +39,29 @@ documentação do Python são um bom lugar para começar.class
 #Quando quer organizar funções e dados relacionados em uma única estrutura.
 
 
-import os
-os.system('clear') #Limpa terminal('clear' só para linux n)
 from typing_extensions import Dict
 class Escola:
     def __init__(self): #metodo contrutor
-        self.__aluno_serie__:Dict[str,str] ={}
+        self.__aluno_serie__:Dict[int, list[str]] ={}
 
-    def adicionar_aluno(self, nome, serie):
+    def adicionar_aluno(self, nome:str, serie:int):
         if serie not in self.__aluno_serie__:
             self.__aluno_serie__[serie] = []
 
         if nome in self.__aluno_serie__[serie]:
             raise Exception(f"Erro: {nome} já está matriculado na {serie} serie")
 
-        self.__aluno_serie__[serie].append(nome)
-        self.__aluno_serie__[serie].sort()  #coloca em ordem
-        #return f"{nome} já esta matriculado no curso .."
+        self.__aluno_serie__[serie].append(nome) #TODO:inserir ordenado
+        self.__aluno_serie__[serie].sort()  #TODO:remover após inserir ordenado
 
-    def alunos_na_serie(self, serie): #encontra os alunos na serie especifica
+    def alunos_na_serie(self, serie:int):
         if serie in self.__aluno_serie__:
             return self.__aluno_serie__[serie]
         else:
            raise Exception(f"Não tem alunos")
 
     def mostra_todos_alunos(self):
-        resultado=[] #lista pra por resultado
+        resultado: list[str]=[]
         for serie in sorted(self.__aluno_serie__.keys()): #sorted serve para colocar na ordem
             resultado.extend(self.__aluno_serie__[serie]) #add final da lista
         return resultado
@@ -79,7 +76,7 @@ escola.adicionar_aluno('Peter', 2)
 escola.adicionar_aluno('Zoe', 2)
 escola.adicionar_aluno('Jim', 5)
 
-print(escola.alunos_na_serie(1))
+print(escola.alunos_na_serie(2))
 print(escola.mostra_todos_alunos())
 print(escola.adicionar_aluno('Jim', 2)) #'none' de resposta?
 print(escola.adicionar_aluno('Jim', 5))
