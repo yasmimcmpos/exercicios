@@ -41,35 +41,35 @@ documentação do Python são um bom lugar para começar.class
 
 import os
 os.system('clear') #Limpa terminal('clear' só para linux n)
-
+from typing_extensions import Dict
 class Escola:
-    def __init__(self): #metodo
-        self.aluno_serie ={}
+    def __init__(self): #metodo contrutor
+        self.__aluno_serie__:Dict[str,str] ={}
 
     def adicionar_aluno(self, nome, serie):
-        if serie not in self.aluno_serie:
-            self.aluno_serie[serie] = []
+        if serie not in self.__aluno_serie__:
+            self.__aluno_serie__[serie] = []
 
-        if nome in self.aluno_serie[serie]:
-            print(f"Erro: {nome} já está matriculado na {serie} serie")
+        if nome in self.__aluno_serie__[serie]:
+            raise Exception(f"Erro: {nome} já está matriculado na {serie} serie")
 
-        self.aluno_serie[serie].append(nome)
-        self.aluno_serie[serie].sort()
-        #return f"{nome} já esta matriculado no curso ...{}"
+        self.__aluno_serie__[serie].append(nome)
+        self.__aluno_serie__[serie].sort()  #coloca em ordem
+        #return f"{nome} já esta matriculado no curso .."
 
-    def alunos_na_serie(self, serie):
-        if serie in self.aluno_serie:
-            return self.aluno_serie[serie]
+    def alunos_na_serie(self, serie): #encontra os alunos na serie especifica
+        if serie in self.__aluno_serie__:
+            return self.__aluno_serie__[serie]
         else:
-            print(f"Não tem alunos")
+           raise Exception(f"Não tem alunos")
 
     def mostra_todos_alunos(self):
-        resultado=[]
-        for serie in sorted(self.aluno_serie.keys()): #sorted serve para colocar na ordem
-            resultado.extend(self.aluno_serie[serie])
+        resultado=[] #lista pra por resultado
+        for serie in sorted(self.__aluno_serie__.keys()): #sorted serve para colocar na ordem
+            resultado.extend(self.__aluno_serie__[serie]) #add final da lista
         return resultado
 
-escola = Escola() # instancia
+escola = Escola() # instancia - inicializa um objeto
 
 escola.adicionar_aluno('Anna', 1)
 escola.adicionar_aluno('Barb', 1)
@@ -79,7 +79,7 @@ escola.adicionar_aluno('Peter', 2)
 escola.adicionar_aluno('Zoe', 2)
 escola.adicionar_aluno('Jim', 5)
 
-print(escola.alunos_na_serie(2))
+print(escola.alunos_na_serie(1))
 print(escola.mostra_todos_alunos())
-print(escola.adicionar_aluno('Jim', 2)) #none de resposta?
+print(escola.adicionar_aluno('Jim', 2)) #'none' de resposta?
 print(escola.adicionar_aluno('Jim', 5))
