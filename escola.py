@@ -40,6 +40,7 @@ documentação do Python são um bom lugar para começar.class
 
 
 from typing_extensions import Dict
+import bisect
 class Escola:
     def __init__(self): #metodo contrutor
         self.__aluno_serie__:Dict[int, list[str]] ={}
@@ -51,8 +52,7 @@ class Escola:
         if nome in self.__aluno_serie__[serie]:
             raise Exception(f"Erro: {nome} já está matriculado na {serie} serie")
 
-        self.__aluno_serie__[serie].append(nome) #TODO:inserir ordenado
-        self.__aluno_serie__[serie].sort()  #TODO:remover após inserir ordenado
+        bisect.insort(self.__aluno_serie__[serie], nome) ##TODO
 
     def alunos_na_serie(self, serie:int):
         if serie in self.__aluno_serie__:
