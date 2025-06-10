@@ -19,7 +19,7 @@ def pares_e_soma(limite):
 
         a = a_novo
         b = b_novo
-    return soma
+return soma
 
 resultado = pares_e_soma(limite)
 print(f"Somar os termos pares até chegar em {limite} è igual a: {resultado}")
