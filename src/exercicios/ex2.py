@@ -109,5 +109,3 @@ escola.adicionar_aluno("Jim", 5)
 
 print(escola.alunos_na_serie(2))
 print(escola.mostra_todos_alunos())
-print(escola.adicionar_aluno("Jim", 2))  #'none' de resposta?
-print(escola.adicionar_aluno("Jim", 5))
