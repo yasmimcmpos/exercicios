@@ -32,24 +32,18 @@ Se você não estiver familiarizado com classes em Python, as classes da
 documentação do Python são um bom lugar para começar.class
 """
 
-# Quando Usar Classes?
-# Quando você precisa modelar objetos do mundo real (ex: Carro, Produto, Usuário).
-# Para evitar repetição de código (herança).
-# Quando quer organizar funções e dados relacionados em uma única estrutura.
-
-
 import bisect
 
 from typing_extensions import Dict
 
 
 class Escola:
-    def __init__(self) -> None:  # metodo contrutor
+    def __init__(self) -> None:
         self.__aluno_serie__: Dict[int, list[str]] = {}
 
     def adicionar_aluno(self, nome: str, serie: int) -> None:
-        """Essa função vai adicionar um aluno a uma serie ou apresentar erro caso o aluno já esteja matriculado
-        em alguma serie
+        """Essa função vai adicionar um aluno a uma serie ou apresentar erro
+        caso o aluno já esteja matriculado em alguma serie
 
                 Args:
                     nome (str): _description_
@@ -62,7 +56,10 @@ class Escola:
             self.__aluno_serie__[serie] = []
 
         if nome in self.__aluno_serie__[serie]:
-            raise Exception(f"Erro: {nome} já está matriculado na {serie} serie")
+            raise Exception(
+                f"Erro: {nome} já está matriculado na {serie}\
+                serie"
+            )
 
         bisect.insort(self.__aluno_serie__[serie], nome)
 
@@ -81,31 +78,18 @@ class Escola:
         if serie in self.__aluno_serie__:
             return self.__aluno_serie__[serie]
         else:
-            raise Exception(f"Não tem alunos")
+            raise Exception("Não tem alunos")
 
     def mostra_todos_alunos(self) -> list[str]:
-        """Essa função lista em ordem alfabética todos os alunos nas respectivas serie
+        """Essa função lista em ordem alfabética todos os alunos nas respectivas
+        serie
 
         Returns:
             list[str]: a lista com todos os nomes
         """
         resultado: list[str] = []
-        for serie in sorted(
-            self.__aluno_serie__.keys()
-        ):  # sorted serve para colocar na ordem
-            resultado.extend(self.__aluno_serie__[serie])  # add final da lista
+
+        for serie in sorted(self.__aluno_serie__.keys()):
+            resultado.extend(self.__aluno_serie__[serie])
+
         return resultado
-
-
-escola = Escola()  # instancia - inicializa um objeto
-
-escola.adicionar_aluno("Anna", 1)
-escola.adicionar_aluno("Barb", 1)
-escola.adicionar_aluno("Charlie", 1)
-escola.adicionar_aluno("Alex", 2)
-escola.adicionar_aluno("Peter", 2)
-escola.adicionar_aluno("Zoe", 2)
-escola.adicionar_aluno("Jim", 5)
-
-print(escola.alunos_na_serie(2))
-print(escola.mostra_todos_alunos())
