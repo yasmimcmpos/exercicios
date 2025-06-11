@@ -14,13 +14,11 @@ def pares_e_soma(limite: int) -> int:
     Returns:
         int: o valor da soma
     """
-    a = 1
-    b = 2
-    soma = 0
+    a, b, soma = 1, 2, 0
 
     while a <= limite:
         if a % 2 == 0:
             soma += a
-        a, b = b, a
+        a, b = b, a + b
 
     return soma
