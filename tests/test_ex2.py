@@ -3,6 +3,9 @@ from pytest import raises
 
 from exercicios.ex2 import Escola
 
+##Comentar com Fazenda:
+# Pytest não queria importar então eu troquei para "with pytest.raises()...
+
 
 def test_de_adicionar_um_aluno() -> None:
     escola = Escola()
@@ -10,7 +13,7 @@ def test_de_adicionar_um_aluno() -> None:
     escola.adicionar_aluno("Anna", serie)
 
     assert "Anna" in escola.alunos_na_serie(serie)
-    with raises(Exception, match="Aluno já está matriculado"):
+    with pytest.raises(Exception, match="Aluno já está matriculado"):
         escola.adicionar_aluno("Anna", 1)
 
 
