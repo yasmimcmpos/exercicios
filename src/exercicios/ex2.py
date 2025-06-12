@@ -56,10 +56,7 @@ class Escola:
             self.__aluno_serie__[serie] = []
 
         if nome in self.__aluno_serie__[serie]:
-            raise Exception(
-                f"Erro: {nome} já está matriculado na {serie}\
-                serie"
-            )
+            raise Exception("Aluno já está matriculado")
 
         bisect.insort(self.__aluno_serie__[serie], nome)
 
