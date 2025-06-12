@@ -25,6 +25,15 @@ def test_erro_nao_tem_aluno() -> None:
         escola.alunos_na_serie(2)
 
 
+def test_conferir_se_mostra_todos() -> None:
+    escola = Escola()
+    escola.__aluno_serie__ = {1: ["Barb", "Charlie"], 5: ["Jim"]}
+
+    resultado = escola.mostra_todos_alunos()
+    esperado = ["Barb", "Charlie", "Jim"]
+    assert resultado == esperado
+
+
 # def test_erro_aluno_ja_existe() -> None:
 # escola = Escola()
 # escola.adicionar_aluno("Anna", 1)
