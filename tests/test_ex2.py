@@ -19,6 +19,14 @@ def test_erro_nao_tem_aluno() -> None:
         escola.alunos_na_serie(2)
 
 
+def test_erro_aluno_ja_existe() -> None:
+    escola = Escola()
+    escola.adicionar_aluno("Anna", 1)
+
+    with raises(Exception, match="Não tem alunos"):
+        escola.alunos_na_serie(2)
+
+
 # escola.adicionar_aluno("Barb", 1)
 # escola.adicionar_aluno("Charlie", 1)
 # escola.adicionar_aluno("Alex", 2)
