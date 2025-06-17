@@ -10,3 +10,17 @@
 # Portanto, a diferença entre o quadrado da soma dos dez primeiros
 # números naturais e a soma dos quadrados dos dez primeiros números naturais é
 # 3025 - 385 = 2640
+
+
+def diferenca_quadrados(n) -> int:
+    soma = sum(range(1, n + 1))
+    quadrado_da_soma = soma**2
+
+    soma_dos_quadrados = sum(i**2 for i in range(1, n + 1))
+
+    return quadrado_da_soma - soma_dos_quadrados
+
+
+n = 10
+resultado = diferenca_quadrados(n)
+print(f"A diferença entre é {n} e os primeiros números naturais é {resultado}.")
