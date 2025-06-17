@@ -12,7 +12,7 @@
 # 3025 - 385 = 2640
 
 
-def diferenca_quadrados(n) -> int:
+def diferenca_quadrados(n: int) -> int:
     soma = sum(range(1, n + 1))
     quadrado_da_soma = soma**2
 
