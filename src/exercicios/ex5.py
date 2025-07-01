@@ -6,7 +6,18 @@
 
 
 def maior_fator_primo(n: int) -> int:
+    maior = 0
+    fatores = []
+    temp = n
+
     for i in range(2, int(n**0.5) + 1):
-        while n % i == 0:
-            n //= i
-    return n
+        while temp % i == 0:
+            temp //= i
+            fatores.append(i)
+
+    # if temp > 1:
+    #     fatores.append(temp)
+
+    maior = max(fatores)
+
+    return maior
