@@ -13,14 +13,4 @@
 
 
 def diferenca_quadrados(n: int) -> int:
-    soma = sum(range(1, n + 1))
-    quadrado_da_soma = soma**2
-
-    soma_dos_quadrados = sum(i**2 for i in range(1, n + 1))
-
-    return quadrado_da_soma - soma_dos_quadrados
-
-
-n = 10
-resultado = diferenca_quadrados(n)
-print(f"A diferença entre é {n} e os primeiros números naturais é {resultado}.")
+    return sum(range(1, n + 1)) ** 2 - sum(i**2 for i in range(1, n + 1))
