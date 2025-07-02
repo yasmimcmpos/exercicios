@@ -1,5 +1,5 @@
 # Os Fatores Primos de 13195 são 5, 7, 13, 29
-# Qual é o maior fator primo do número 6008514751413?
+# Qual é o maior fator primo do número 600851475143?
 # Função deve dividir meu numero por todos os numeros primos até não sobrar mais
 
 # Obs.: Maior dificuldade na hora dos testes é a matemática
@@ -15,8 +15,8 @@ def maior_fator_primo(n: int) -> int:
             temp //= i
             fatores.append(i)
 
-    # if temp > 1:
-    #     fatores.append(temp)
+        # if temp > 1:
+        #     fatores.append(temp)
 
     maior = max(fatores)
 

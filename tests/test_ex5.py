@@ -6,4 +6,7 @@ def test_maior_fator_primo_ex():  ##TODO ex6 fazer caso de ex primeiro
 
 
 def test_maior_fator_primo():
-    assert maior_fator_primo(6_008_514_751_413) == 6_857
+    assert maior_fator_primo(6_00_851_475_143) == 6857
+
+
+# ERRO: assert maior_fator_primo(6_008_514_751_413) == 6_857
