@@ -7,30 +7,26 @@
 
 from itertools import combinations_with_replacement
 
-# combinations_with_replacement cria todos os pares possíveis de
-# números sem repetir ordem, ou seja, (123, 456) é o mesmo que (456, 123) —
-# ele só usa um dos dois.
-# Obs: já está no readme.md, só está aqui para explicar melhor.
 
+def se_e_palindromo(valor: int) -> bool:
+    string = str(valor)
 
-def se_e_palindromo(n: int) -> bool:
-    s = str(n)
-
-    return s == s[::-1]  # slice invertido - a string invertida
-
-
-# s[::-1] :: pega a string do inicio ao fim
-# -1 = faz ele ir ao contrário
+    return "".join(reversed(string)) == string
+    # "".join junta as strings
 
 
 def maior_palindromo(tamanho: int) -> int:
-    numeros = range(10 ** (tamanho - 1), 10**tamanho)
+    n_digitos = range(10 ** (tamanho - 1), 10**tamanho)
+    # numeros = [1,...,9] = 1
+    # numeros = [10,...,99]  =2
+    # numeros = [100,...,999] =3
     # Gera os números possíveis desse tamanho
 
-    produtos = (a * b for a, b in combinations_with_replacement(numeros, 2))
+    produtos = (a * b for a, b in combinations_with_replacement(n_digitos, 2))
     # Gerador com todos os n possivei de (a * b)
 
-    palindromos = filter(se_e_palindromo, produtos)
-    # filtra para encontrar só os que são palindromos...
+    palindromos = [x for x in produtos if se_e_palindromo(x)]
+    # Forma mais Pythonista de fazer
+    # palindromos = filter(se_e_palindromo, produtos)
 
     return max(palindromos)
