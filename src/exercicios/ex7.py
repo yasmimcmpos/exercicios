@@ -81,4 +81,23 @@ def map(funcao, lista):
 def foldl(funcao, acumulador, lista):
     for item in lista:
         acumulador = funcao(acumulador, item)
+        # exemplo soma(0, 1) --> 1
+        # exemplo soma(1, 2) --> 3
+        # exemplo soma(3, 3) --> 6
     return acumulador
+
+
+def foldr(funcao, acumulador, lista):
+    if lista == []:
+        return acumulador
+    else:
+        return funcao(lista[0], foldr(funcao, acumulador, lista[1:]))
+        # vai combinando elementos de trás pra frente
+
+
+def reverse(lista):
+    resultado = []
+    for item in lista:
+        resultado = [item] + resultado
+        # coloca item no início, contrário do append
+    return resultado
