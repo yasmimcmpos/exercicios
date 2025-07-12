@@ -20,7 +20,7 @@
 # length (dada uma lista, retorna o número total de itens dentro dela);
 
 # map (dada uma função e uma lista, retorna a lista dos resultados da aplicação
-# em todos os itensfunction(item));
+# em todos os itens function(item));
 
 # foldl (Dada uma função, uma lista e um acumulador inicial, dobre (reduza)
 # cada item no acumulador da esquerda);
@@ -36,7 +36,49 @@
 # foldl foldr
 
 
-def exer1(lista1, lista2) -> None:
+def append(lista1, lista2):
+    resultado = []
+    for item in lista1:
+        resultado += [item]  # += soma e atualiza o valor
     for item in lista2:
-        lista_nova = lista1 + [item]
-        print(lista_nova)
+        resultado += [item]
+    return resultado
+
+
+def concatenate(listas):
+    resultado = []
+    for sublista in listas:  # Pega cada lista
+        for item in sublista:  # pega cada item
+            resultado += [item]  # add item a lista
+    return resultado
+
+
+def filter(predicado, lista):
+    resultado = []
+    for item in lista:
+        if predicado(item):  # predicado testa cada item da lista
+            resultado += [item]
+    return resultado
+
+
+def lenght(lista):
+    contador = 0
+    for _ in lista:  # _ qualquer valor
+        contador += 1  # percorre item a item, cada um achado soma 1 no contador
+    return contador
+
+
+def map(funcao, lista):
+    resultado = []
+    for item in lista:
+        resultado += [funcao(item)]
+        # exemplo [dobrar(1) = 2]
+        # exemplo [dobrar(2) = 4]
+        # exemplo [dobrar(3) = 6]
+    return resultado
+
+
+def foldl(funcao, acumulador, lista):
+    for item in lista:
+        acumulador = funcao(acumulador, item)
+    return acumulador
