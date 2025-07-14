@@ -36,8 +36,14 @@
 # foldl foldr
 
 
-def append(lista1, lista2):
-    resultado = []
+def append(lista1: list[int], lista2: list[int]) -> list[int]:
+    ##TODO tentar fazer com classe
+    """
+    :param lista 1:
+    :param lista 2:
+    :return resultado da soma
+    """
+    resultado: list[int] = []
     for item in lista1:
         resultado += [item]  # += soma e atualiza o valor
     for item in lista2:
@@ -45,15 +51,15 @@ def append(lista1, lista2):
     return resultado
 
 
-def concatenate(listas):
-    resultado = []
+def concatenate(listas: list[int]) -> list[int]:
+    resultado: list[int] = []
     for sublista in listas:  # Pega cada lista
         for item in sublista:  # pega cada item
             resultado += [item]  # add item a lista
     return resultado
 
 
-def filter(predicado, lista):
+def filter(predicado, lista: list[int]):
     resultado = []
     for item in lista:
         if predicado(item):  # predicado testa cada item da lista
@@ -68,13 +74,23 @@ def lenght(lista):
     return contador
 
 
-def map(funcao, lista):
+def map(funcao, lista):  ##TODO documentar tudoo
+    """_summary_
+    Example:
+        >>>map(dobrar, [1])
+        [2]
+
+    Args:
+        funcao (_type_): _description_
+        lista (_type_): _description_
+
+    Returns:
+        _type_: _description_
+    """
     resultado = []
     for item in lista:
         resultado += [funcao(item)]
-        # exemplo [dobrar(1) = 2]
-        # exemplo [dobrar(2) = 4]
-        # exemplo [dobrar(3) = 6]
+
     return resultado
 
 
