@@ -37,7 +37,6 @@
 
 
 def append(lista1: list[int], lista2: list[int]) -> list[int]:
-    ##TODO tentar fazer com classe
     """
     :param lista 1:
     :param lista 2:
