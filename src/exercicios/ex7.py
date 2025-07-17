@@ -35,6 +35,8 @@
 # funções de dobra (, ) é significativa.
 # foldl foldr
 
+from typing import Any, Callable
+
 
 def append(lista1: list[int], lista2: list[int]) -> list[int]:
     """
@@ -58,7 +60,7 @@ def concatenate(listas: list[int]) -> list[int]:
     return resultado
 
 
-def filter(predicado, lista: list[int]):
+def filter(predicado: Callable[[int], bool], lista: list[int]) -> list[Any]:
     resultado = []
     for item in lista:
         if predicado(item):  # predicado testa cada item da lista
@@ -66,26 +68,14 @@ def filter(predicado, lista: list[int]):
     return resultado
 
 
-def lenght(lista):
+def lenght(lista: list[int]):
     contador = 0
     for _ in lista:  # _ qualquer valor
         contador += 1  # percorre item a item, cada um achado soma 1 no contador
     return contador
 
 
-def map(funcao, lista):  ##TODO documentar tudoo
-    """_summary_
-    Example:
-        >>>map(dobrar, [1])
-        [2]
-
-    Args:
-        funcao (_type_): _description_
-        lista (_type_): _description_
-
-    Returns:
-        _type_: _description_
-    """
+def map(funcao: Callable[[int], int], lista: list[int]):
     resultado = []
     for item in lista:
         resultado += [funcao(item)]
@@ -93,7 +83,18 @@ def map(funcao, lista):  ##TODO documentar tudoo
     return resultado
 
 
-def foldl(funcao, acumulador, lista):
+def foldl(funcao: Callable[[int, int], int], acumulador: int, lista: list[int]):
+    """Aplica uma função binária acumuladora da esquerda para a direita
+
+    Args:
+        funcao (Callable[[int, int], int]): Função que recebe acumulador e item
+        retorna novo acumulador.
+        acumulador (int): Valor inicial do acumulador.
+        lista (list[int]): Lista de inteiros.
+
+    Returns:
+        int: Resultado final do acumulador
+    """
     for item in lista:
         acumulador = funcao(acumulador, item)
         # exemplo soma(0, 1) --> 1
@@ -102,7 +103,7 @@ def foldl(funcao, acumulador, lista):
     return acumulador
 
 
-def foldr(funcao, acumulador, lista):
+def foldr(funcao, acumulador, lista: list[int]):
     if lista == []:
         return acumulador
     else:
@@ -110,7 +111,7 @@ def foldr(funcao, acumulador, lista):
         # vai combinando elementos de trás pra frente
 
 
-def reverse(lista):
+def reverse(lista: list[int]):
     resultado = []
     for item in lista:
         resultado = [item] + resultado
