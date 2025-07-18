@@ -1,14 +1,37 @@
-from exercicios.ex8 import(
-    years_mercury,
-    years_venus,
-    years_mars,
+from exercicios.ex8 import (
     years_jupter,
+    years_mars,
+    years_mercury,
+    years_neptune,
     years_saturn,
     years_uranus,
-    years_neptune,
+    years_venus,
 )
 
+
 def test_years_mercury():
-    assert years_mercury(1_000_000_000) == 
-# assert entrada_em_segundos_terra(1_000_000_000) == 31,68
-# assert entrada_em_segundos_marte(1_000_000_000) == 16,85
+    assert years_mercury(1_000_000_000) == 131, 569532877
+
+
+def test_years_venus():
+    assert years_mercury(1_000_000_000) == 131, 569532877
+
+
+def test_years_mars():
+    assert years_mercury(1_000_000_000) == 131, 569532877
+
+
+def test_years_jupter():
+    assert years_mercury(1_000_000_000) == 131, 569532877
+
+
+def test_years_saturn():
+    assert years_mercury(1_000_000_000) == 131, 569532877
+
+
+def test_years_uranus():
+    assert years_mercury(1_000_000_000) == 131, 569532877
+
+
+def test_years_neptune():
+    assert years_mercury(1_000_000_000) == 131, 569532877
