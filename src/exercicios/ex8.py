@@ -35,6 +35,7 @@ class SpaceAge:
 # my_second_year = 0
 # my_second_year / planet_year_second
 
+# OU
 
 # def my_year_on_planet
 # my_second_year = 0
