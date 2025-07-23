@@ -2,8 +2,6 @@
 # Qual é o maior fator primo do número 600851475143?
 # Função deve dividir meu numero por todos os numeros primos até não sobrar mais
 
-# Obs.: Maior dificuldade na hora dos testes é a matemática
-
 
 def maior_fator_primo(n: int) -> int:
     maior = 0
