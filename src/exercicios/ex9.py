@@ -17,6 +17,11 @@ def calc_mmc(a: int, b: int) -> int:
 
     Returns:
         int: resultado do MMC inteiro
+
+    Observations:
+       -A função 'abs' garante que o resultado seja positivo
+       -A função 'math.gcd' calcula o máximo divisor comum entre dois numeros
+
     """
     return abs(a * b) // math.gcd(a, b)
 
