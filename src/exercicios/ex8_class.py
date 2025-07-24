@@ -19,3 +19,10 @@ class SpaceAge:
         "uranus": 84.016846,
         "neptune": 164.79132,
     }
+
+    def __init__(self, seconds: float):
+        self.seconds = seconds
+
+    def age_on_planet(self, planet: str) -> float:
+        period = self.orbital_period[planet]
+        return self.seconds / (self.second_in_earth_year * period)
