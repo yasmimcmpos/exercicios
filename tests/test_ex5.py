@@ -1,7 +1,7 @@
 from exercicios.ex5 import maior_fator_primo
 
 
-def test_maior_fator_primo_ex():  ##TODO ex6 fazer caso de ex primeiro
+def test_maior_fator_primo_ex():
     assert maior_fator_primo(13_195) == 29
 
 
