@@ -14,10 +14,23 @@
 
 from typing import Dict
 
+# def my_year_on_planet
+# my_second_year / second_in_earth_year * planet_year(fator)
 
-class SpaceAge:
+
+def SpaceAge(second_year: float, planet: str) -> float:
+    """Calculation of years on each planet
+
+    Args:
+        second_year (float): The person's age expressed in seconds.
+        planet (str): The name of the planet to convert the age to.
+
+    Returns:
+        float: Corresponding age on the chosen planet, in planetary years.
+    """
     second_in_earth_year = 31_557_600
-    planet_years = Dict[str, float] = {
+
+    orbital_period: Dict[str, float] = {
         "mercury": 0.2408467,
         "venus": 0.61519726,
         "mars": 1.8808158,
@@ -26,19 +39,5 @@ class SpaceAge:
         "uranus": 84.016846,
         "neptune": 164.79132,
     }
-
-
-# def __init__
-# second_in_earth_year * planet_year --> return planet_year_second
-
-# def my_year_on_planet
-# my_second_year = 0
-# my_second_year / planet_year_second
-
-# OU
-
-# def my_year_on_planet
-# my_second_year = 0
-# my_second_year / second_in_earth_year * planet_year
-
-# pensar em como fazer de um em um
+    factor = orbital_period[planet]
+    return second_year / (second_in_earth_year * factor)
