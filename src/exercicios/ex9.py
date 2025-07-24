@@ -3,6 +3,12 @@
 # 1 to 10 without any remainder.
 # What is the smallest positive number that is evenly divisible by all of
 # the numbers from 1 to 20?
+# Logic:
+# Função 1:
+# Calcular o MMC de dois em dois, calcula dois e passa para o próximo
+
+# Função 2:
+# Criar uma lista e aplicar o MMC nela para todos os números
 
 import math
 from functools import reduce
@@ -41,10 +47,3 @@ def mmc_in_list(lista: list[int]) -> int:
 
     """
     return reduce(calc_mmc, lista)
-
-
-# Função 1:
-# Calcular o MMC de dois em dois, calcula dois e passa para o próximo
-
-# Função 2:
-# Criar uma lista e aplicar o MMC nela para todos os números
