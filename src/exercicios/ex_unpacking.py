@@ -49,6 +49,7 @@ number = [
 ]
 
 num1, *remaining = number
+# '*' I don't know how much numbers have
 
 sum_all = sum(number)
 print(sum_all)
