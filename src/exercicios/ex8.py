@@ -12,10 +12,9 @@
 # Entrada_idade / periodo orbital do planeta em segundos
 # Retorna Idade em anos do planeta.
 
-from typing import Dict
 
 # def my_year_on_planet
-# my_second_year / second_in_earth_year * planet_year(fator)
+# my_second_year / second_in_earth_year * planet_year(factor)
 
 
 def SpaceAge(second_year: float, planet: str) -> float:
@@ -28,9 +27,9 @@ def SpaceAge(second_year: float, planet: str) -> float:
     Returns:
         float: Corresponding age on the chosen planet, in planetary years.
     """
-    second_in_earth_year = 31_557_600
+    second_in_earth_year = 31_557_600  ##TODO maiusculo: constante
 
-    orbital_period: Dict[str, float] = {
+    orbital_period: dict[str, float] = {
         "mercury": 0.2408467,
         "venus": 0.61519726,
         "mars": 1.8808158,

@@ -10,12 +10,12 @@
 # Função 2:
 # Criar uma lista e aplicar o MMC nela para todos os números
 
-import math
-from functools import reduce
+from functools import reduce  # Forma de importar
+from math import gcd
 
 
 def calc_mmc(a: int, b: int) -> int:
-    """calculo de mmc
+    """Calculo de mmc
 
     Args:
         a (int): primeiro número a ser multiplicado
@@ -29,10 +29,10 @@ def calc_mmc(a: int, b: int) -> int:
        -A função 'math.gcd' calcula o máximo divisor comum entre dois numeros
 
     """
-    return abs(a * b) // math.gcd(a, b)
+    return abs(a * b) // gcd(a, b)
 
 
-def mmc_in_list(lista: list[int]) -> int:
+def mmc_in_list(values: list[int]) -> int:
     """Calcular o MMC dentro da lista
 
     Args:
@@ -46,4 +46,7 @@ def mmc_in_list(lista: list[int]) -> int:
         cumulativamente com os seguintes da sequência.
 
     """
-    return reduce(calc_mmc, lista)
+    return reduce(calc_mmc, values)
+
+
+# Values = Forma de nomear meu parametro não deve ser redundante

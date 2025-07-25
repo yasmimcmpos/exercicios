@@ -1,7 +1,7 @@
 from exercicios.ex8_class import SpaceAge
 
 
-def test_space_age():
+def test_space_age() -> None:
     pessoa = SpaceAge(1_000_000_000)
 
     assert round(pessoa.age_on_planet("mercury"), 2) == 131.57
