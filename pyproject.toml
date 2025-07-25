@@ -6,7 +6,7 @@ authors = [
     {name = "yasmimcmpos",email = "yasmimfer987@outlook.com"}
 ]
 readme = "README.md"
-requires-python = ">=3.13"
+requires-python = ">=3.13,<4.0"
 dependencies = [
     "typing-extensions (>=4.14.0,<5.0.0)"
 ]
