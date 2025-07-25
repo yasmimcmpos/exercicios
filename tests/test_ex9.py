@@ -2,7 +2,7 @@ from exercicios.ex9 import mmc_in_list
 
 
 def test_mmc_ex() -> None:
-    assert mmc_in_list(list(range(1, 11))) == 2520
+    assert mmc_in_list(list(range(1, 11))) == 2_520
 
 
 def test_mmc() -> None:
