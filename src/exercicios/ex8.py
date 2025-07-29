@@ -27,7 +27,7 @@ def SpaceAge(second_year: float, planet: str) -> float:
     Returns:
         float: Corresponding age on the chosen planet, in planetary years.
     """
-    second_in_earth_year = 31_557_600  ##TODO maiusculo: constante
+    SECOND_IN_EARTH_YEAR = 31_557_600
 
     orbital_period: dict[str, float] = {
         "mercury": 0.2408467,
@@ -39,4 +39,4 @@ def SpaceAge(second_year: float, planet: str) -> float:
         "neptune": 164.79132,
     }
     factor = orbital_period[planet]
-    return second_year / (second_in_earth_year * factor)
+    return second_year / (SECOND_IN_EARTH_YEAR * factor)

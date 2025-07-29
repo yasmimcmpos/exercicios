@@ -50,4 +50,3 @@ def mmc_in_list(values: list[int]) -> int:
 
 
 # Values = Forma de nomear meu parametro não deve ser redundante
-##TODO tentar fazer de forma que ocupe menas memória
