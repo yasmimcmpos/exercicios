@@ -1,0 +1,85 @@
+version: "3"
+
+services:
+  postgres:
+    image: postgres:13
+    restart: unless-stopped
+    environment:
+      - POSTGRES_USER=weekly
+      - POSTGRES_PASSWORD=weekly
+      - POSTGRES_DB=sonar
+    volumes:
+      - postgres:/var/lib/postgresql
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - proxy
+
+  sonarqube:
+    image: sonarqube:lts-community
+    restart: unless-stopped
+    environment:
+      - SONAR_JDBC_URL=jdbc:postgresql://postgres:5432/sonar
+      - SONAR_JDBC_USERNAME=weekly
+      - SONAR_JDBC_PASSWORD=weekly
+    volumes:
+      - sonarqube_conf:/opt/sonarqube/conf
+      - sonarqube_data:/opt/sonarqube/data
+      - sonarqube_extensions:/opt/sonarqube/extensions
+      - sonarqube_logs:/opt/sonarqube/logs
+      - sonarqube_temp:/opt/sonarqube/temp
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.sonarqube.tls=true
+      - traefik.http.services.sonarqube.loadbalancer.server.port=9000
+      - traefik.http.routers.sonarqube.rule=Host(`sonarqube.docker.localhost`)
+    networks:
+      - proxy
+
+  modelio:
+    image: fazenda/modelio
+    restart: unless-stopped
+    environment:
+      - TZ=America/Sao_Paulo
+      - USER_ID=0
+      - GROUP_ID=0
+    volumes:
+      - ${PWD}/workspace:/root/modelio/workspace
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.modelio.tls=true
+      - traefik.http.routers.modelio.rule=Host(`modelio.docker.localhost`)
+    networks:
+      - proxy
+
+  reverse-proxy:
+    image: traefik:v3.3.6
+    security_opt:
+      - no-new-privileges:true
+    restart: on-failure
+    ports:
+      - 80:80
+      - 443:443
+      - 8080:8080
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - ${HOME}/.certs:/etc/certs:ro
+      - ${HOME}/.traefik/traefik.yml:/etc/traefik/traefik.yml:ro
+      - ${HOME}/.traefik/config.yml:/etc/traefik/config.yml:ro
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.traefik=true
+    networks:
+      - proxy
+
+volumes:
+  sonarqube_conf:
+  sonarqube_data:
+  sonarqube_extensions:
+  sonarqube_logs:
+  sonarqube_temp:
+  postgres:
+  postgres_data:
+
+networks:
+  proxy:
+    external: true
