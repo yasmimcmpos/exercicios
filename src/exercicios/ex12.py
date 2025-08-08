@@ -1,17 +1,14 @@
 # Create an implementation of the rotational cipher, also sometimes called
 # the Caesar cipher.
-
-# criar lista com alfabeto
-# fazer com que rode o alfabeto até a chave escolhida
-# compensaria criar uma lista de cada variável possivel?
-
-
-# for i(minha chave) in range (1,27):
-# fixar minha chave como posição 0
-# outro loop que pga meu
+# .index - serve para encontrar a posição de uma string ou lista
+# wrap around - útil para alfabeto, listas circulares ou relógios,
+#
 
 
-# if i(chave) in lista alfabeto:
-# definir como posição 0
-
-# pensar em como comparar uma lista com a outra
+alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+char = "H"
+key = 3
+atual_position = alphabet.index(char)
+new_position = atual_position + key
+new_char = alphabet[new_position]
+print(new_position, new_char)
