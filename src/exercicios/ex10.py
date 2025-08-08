@@ -22,6 +22,9 @@ class GigasecondCalculator:
         self.start_date = start_date
         self.gigasecond = timedelta(seconds=1_000_000_000)
 
+    def __repr__(self) -> str:
+        return f"GigasecondCalculator({self.start_date})"
+
     def calculate(self) -> datetime:
         """
         Calculates the datetime one gigasecond after the initial date.
@@ -30,9 +33,3 @@ class GigasecondCalculator:
             datetime: The resulting date and time.
         """
         return self.start_date + self.gigasecond
-
-
-if __name__ == "__main__":
-    start = datetime(2025, 8, 6, 10, 14)
-    calculator = GigasecondCalculator(start)
-    result = calculator.calculate()

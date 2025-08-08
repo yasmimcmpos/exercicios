@@ -23,3 +23,6 @@ def cesar(letter: str, key: int) -> str:
         return alphabet[new_position]
     else:
         return letter
+
+
+##TODO Aplicar lógica para frases

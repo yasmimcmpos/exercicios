@@ -19,14 +19,9 @@ class TestGigasecondCalculator(unittest.TestCase):
         result = calculator.calculate()
         self.assertEqual(result, expected)
 
-    def test_different_dates_should_give_different_results(self):
+    def test_different_dates_should_give_different_results(self) -> None:
         date1 = datetime(2000, 1, 1)
         date2 = datetime(2010, 1, 1)
         result1 = GigasecondCalculator(date1).calculate()
         result2 = GigasecondCalculator(date2).calculate()
         self.assertNotEqual(result1, result2)
-
-
-if __name__ == "__main__":
-    unittest.main()
-    unittest.main()
