@@ -34,7 +34,7 @@ class ComplexNumber:
         """
         return ComplexNumber(self.real - other.real, self.imag - other.imag)
 
-    def __mul__(self, other: "ComplexNumber") -> ComplexNumber:
+    def __mul__(self, other: ComplexNumber) -> ComplexNumber:
         """Distributive Multiplication = (a + bi)(c + di)
 
         Args:
