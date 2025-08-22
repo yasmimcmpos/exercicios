@@ -2,15 +2,16 @@
 
 from __future__ import annotations
 
-import math
-
-# atrasa a interpretação das anotações de tipo - evita o uso de ""
+from math import isclose
 
 
 class ComplexNumber:
     def __init__(self, real_part: float, imag_part: float) -> None:
         self.real = real_part
         self.imag = imag_part
+
+    def __repr__(self) -> str:
+        return f"ComplexNumber({self.real, self.imag})"
 
     def __add__(self, other: ComplexNumber) -> ComplexNumber:
         """Addition of ComplexNumbers
@@ -111,6 +112,6 @@ class ComplexNumber:
         """
         if not isinstance(other, ComplexNumber):
             return NotImplemented
-        return math.isclose(self.real, other.real, rel_tol=1e-9) and math.isclose(
+        return isclose(self.real, other.real, rel_tol=1e-9) and isclose(
             self.imag, other.imag, rel_tol=1e-9
         )
