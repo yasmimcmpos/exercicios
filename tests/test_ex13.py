@@ -21,7 +21,7 @@ def test_div() -> None:
 
 
 def test_conjugate() -> None:
-    assert ComplexNumber(3, 4).conjugate() == ComplexNumber(3, -4)
+    assert ComplexNumber(3, -4).conjugate() == ComplexNumber(3, 4)
 
 
 def test_absolute() -> None:

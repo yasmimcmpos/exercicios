@@ -43,12 +43,10 @@ class ComplexNumber:
         Returns:
             ComplexNumber: new multiplied parts
         """
-        ac = self.real * other.real
-        ad = self.real * other.imag
-        bc = self.imag * other.real
-        bd = self.imag * other.imag
-
-        return ComplexNumber(ac - bd, ad + bc)
+        return ComplexNumber(
+            self.real * other.real - self.imag * other.imag,
+            self.real * other.imag + self.imag * other.real,
+        )
 
     def __truediv__(self, other: ComplexNumber) -> ComplexNumber:
         """Division of complex numbers
@@ -63,9 +61,10 @@ class ComplexNumber:
             raise ZeroDivisionError("Cannot divide by zero complex number")
 
         denominator = other.real**2 + other.imag**2
-        real_part = (self.real * other.real + self.imag * other.imag) / denominator
-        imag_part = (self.imag * other.real - self.real * other.imag) / denominator
-        return ComplexNumber(real_part, imag_part)
+        return ComplexNumber(
+            (self.real * other.real + self.imag * other.imag) / denominator,
+            (self.imag * other.real - self.real * other.imag) / denominator,
+        )
 
     def conjugate(self) -> ComplexNumber:
         """conjugate complex number
@@ -107,6 +106,8 @@ class ComplexNumber:
             bool: True if both real and imaginary parts are equal,
             False otherwise. If 'other' is not a ComplexNumber,
             returns NotImplemented.
+        Obs.:Permite comparar pequenas variações numéricas como:
+        (1.000000001, 2) a (1.000000002, 2)
         """
         if not isinstance(other, ComplexNumber):
             return NotImplemented
