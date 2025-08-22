@@ -6,7 +6,11 @@ from math import isclose
 
 
 class ComplexNumber:
-    def __init__(self, real_part: float, imag_part: float) -> None:
+    def __init__(
+        self,
+        real_part: float,
+        imag_part: float,
+    ) -> None:
         self.real = real_part
         self.imag = imag_part
 

@@ -5,9 +5,6 @@ def test_add() -> None:
     assert ComplexNumber(1, 2) + ComplexNumber(3, 4) == ComplexNumber(4, 6)
 
 
-# DÙVIDA - posso fazer todos juntos, mas qual seria melhor?
-
-
 def test_sub() -> None:
     assert ComplexNumber(1, 2) - ComplexNumber(3, 4) == ComplexNumber(-2, -2)
 
