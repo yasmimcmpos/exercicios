@@ -2,27 +2,27 @@ from exercicios.ex14 import RationalNumber
 
 
 def test_add() -> None:
-    assert RationalNumber(1, 2) + RationalNumber(1, 3) == (5, 6)
+    assert RationalNumber(1, 2) + RationalNumber(1, 3) == RationalNumber(5, 6)
 
 
 def test_sub() -> None:
-    assert RationalNumber(3, 4) - RationalNumber(1, 4) == (1, 2)
+    assert RationalNumber(3, 4) - RationalNumber(1, 4) == RationalNumber(1, 2)
 
 
 def test_mul() -> None:
-    assert RationalNumber(2, 3) * RationalNumber(3, 4) == (1, 2)
+    assert RationalNumber(2, 3) * RationalNumber(3, 4) == RationalNumber(1, 2)
 
 
 def test_div() -> None:
-    assert RationalNumber(1, 2) / RationalNumber(1, 4) == (2, 1)
+    assert RationalNumber(1, 2) / RationalNumber(1, 4) == RationalNumber(2, 1)
 
 
 def test_abs() -> None:
-    assert abs(RationalNumber(-3, 4)) == (3, 4)
+    assert abs(RationalNumber(-3, 4)) == RationalNumber(3, 4)
 
 
 def test_pow_integer() -> None:
-    assert RationalNumber(2, 3).pow_integer(2) == (4, 9)
+    assert RationalNumber(2, 3).pow_integer(2) == RationalNumber(4, 9)
 
 
 def test_pow_real() -> None:

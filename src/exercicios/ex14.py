@@ -2,12 +2,13 @@
 from __future__ import annotations
 
 from math import gcd
+from typing import Any
 
 
 class RationalNumber:
     def __init__(
         self,
-        numerator: int,
+        numerator: int,  ##TODO ALT F2
         denominator: int,
     ) -> None:
 
@@ -143,15 +144,17 @@ class RationalNumber:
         a, b = r.numerator, r.denominator
         return (x**a) ** (1 / b)
 
-    def __eq__(self, other: object) -> bool:
+    def __eq__(self, other: RationalNumber | Any) -> bool:
         if isinstance(other, RationalNumber):
             return (
                 self.numerator == other.numerator
                 and self.denominator == other.denominator
             )
-        elif isinstance(other, (tuple, list)) and len(other) == 2:
-            try:
-                return self.numerator == other[0] and self.denominator == other[1]
-            except (IndexError, TypeError):
-                return False
-        return False
+
+        if isinstance(other, (int, float)):
+            # return (
+            #     self.numerator == other[0] and self.denominator == other[1]
+            # )  ##TODO corrigir
+            return False
+
+        raise ValueError(f"other cannot be of class: {type(other)}")
