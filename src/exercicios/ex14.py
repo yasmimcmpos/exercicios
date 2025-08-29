@@ -5,7 +5,8 @@ from math import gcd
 from typing import Any
 
 
-class RationalNumber:
+class RationalNumber:  # o nome depende do padrão da empresa: Python Racio_Num
+    # Snake case, Dromedárion Case, Camel case
     def __init__(
         self,
         numerator: int,  ##TODO ALT F2
