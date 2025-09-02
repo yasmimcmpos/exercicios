@@ -9,7 +9,7 @@ class RationalNumber:  # o nome depende do padrão da empresa: Python Racio_Num
     # Snake case, Dromedárion Case, Camel case
     def __init__(
         self,
-        numerator: int,  ##TODO ALT F2
+        numerator: int,
         denominator: int,
     ) -> None:
 
@@ -153,9 +153,9 @@ class RationalNumber:  # o nome depende do padrão da empresa: Python Racio_Num
             )
 
         if isinstance(other, (int, float)):
-            # return (
+            # return(
             #     self.numerator == other[0] and self.denominator == other[1]
-            # )  ##TODO corrigir
+            # )
             return False
 
         raise ValueError(f"other cannot be of class: {type(other)}")
