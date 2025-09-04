@@ -38,21 +38,17 @@ class PigLatin:
         if word.startswith(vowels) or word.startswith(("xr", "yt")):
             return word + "ay"
 
+        # Rule 3: special case "qu"
+        if word.startswith("qu"):
+            return word[2:] + "quay"
+
+        # Rule 3: consoante(s) + "qu"
         for i, letter in enumerate(word):
             if letter in vowels or (letter == "y" and i != 0):
+                #  não pare no 'u' após 'q'
+                if letter == "u" and i > 0 and word[i - 1] == "q":
+                    continue
                 return word[i:] + word[:i] + "ay"
 
         # (caso não encontre vogal nem 'y')
         return word + "ay"
-
-    # def translate(self, text: str) -> str:
-    #     """This method splits the input text into words, translates each word
-    #     using `translate_word`, and then joins them back into a phrase.
-
-    #     Args:
-    #         text (str): The English phrase to translate.
-
-    #     Returns:
-    #         str: The translated Pig Latin phrase.
-    #     """
-    #     return " ".join(self.translate_word(word) for word in text.split())
