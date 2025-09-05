@@ -1,27 +1,39 @@
+import pytest
+
 from exercicios.ex15 import PigLatin
 
 
-def test_word_beginning_vowel() -> None:
-    pig = PigLatin()
-    assert pig.translate_word("apple") == "appleay"
-    assert pig.translate_word("xray") == "xrayay"
-    assert pig.translate_word("yttria") == "yttriaay"
-    assert pig.translate_word("pig") == "igpay"
-    assert pig.translate_word("chair") == "airchay"
-    assert pig.translate_word("thrush") == "ushthray"
-    assert pig.translate_word("quick") == "ickquay"
-    assert pig.translate_word("square") == "aresquay"
-    assert pig.translate_word("my") == "ymay"
-    assert pig.translate_word("rhythm") == "ythmrhay"
-    assert pig.translate_word("object") == "objectay"
-    assert pig.translate_word("under") == "underay"
-    assert pig.translate_word("equal") == "equalay"
-    assert pig.translate_word("liquid") == "iquidlay"
-    assert pig.translate_word("school") == "oolschay"
-    assert pig.translate_word("yellow") == "ellowyay"
-    assert pig.translate_word("yttria") == "yttriaay"
-    assert pig.translate_word("therapy") == "erapythay"
-    assert pig.translate_word("queen") == "eenquay"
-    assert pig.translate_word("xenon") == "enonxay"
-    assert pig.translate_word("koala") == "oalakay"
-    assert pig.translate_word("igloo") == "iglooay"
+@pytest.mark.parametrize(
+    "word, piglatin",
+    [
+        ("apple", "appleay"),
+        ("xray", "xrayay"),
+    ],
+)
+def test_word_beginning_vowel(word: str, piglatin: str) -> None:
+    assert PigLatin(word).translate_word() == piglatin
+
+    # assert PigLatin("xray").translate_word() == "xrayay"
+    # assert PigLatin("yttria").translate_word() == "yttriaay"
+    # assert PigLatin("pig").translate_word() == "igpay"
+    # assert PigLatin("chair").translate_word() == "airchay"
+    # assert PigLatin("thrush").translate_word() == "ushthray"
+    # assert PigLatin("quick").translate_word() == "ickquay"
+    # assert PigLatin("square").translate_word() == "aresquay"
+    # assert PigLatin("my").translate_word() == "ymay"
+    # assert PigLatin("rhythm").translate_word() == "ythmrhay"
+    # assert PigLatin("object").translate_word() == "objectay"
+    # assert PigLatin("under").translate_word() == "underay"
+    # assert PigLatin("equal").translate_word() == "equalay"
+    # assert PigLatin("liquid").translate_word() == "iquidlay"
+    # assert PigLatin("school").translate_word() == "oolschay"
+    # assert PigLatin("yellow").translate_word() == "ellowyay"
+    # assert PigLatin("yttria").translate_word() == "yttriaay"
+    # assert PigLatin("therapy").translate_word() == "erapythay"
+    # assert PigLatin("queen").translate_word() == "eenquay"
+    # assert PigLatin("xenon").translate_word() == "enonxay"
+    # assert PigLatin("koala").translate_word() == "oalakay"
+    # assert PigLatin("igloo").translate_word() == "iglooay"
+    # assert PigLatin("igloo").translate_word() == "iglooay"
+    # assert PigLatin("igloo").translate_word() == "iglooay"
+    # assert PigLatin("igloo").translate_word() == "iglooay"

@@ -10,11 +10,10 @@
 
 
 class PigLatin:
-    def __init__(self) -> None:
-        # Método __init__ vazio porque não precisamos inicializar nada
-        pass
+    def __init__(self, word: str) -> None:
+        self.word = word
 
-    def translate_word(self, word: str) -> str:
+    def translate_word(self) -> str:
         """A class to translate English words or phrases into Pig Latin.
 
         Args:
@@ -35,20 +34,20 @@ class PigLatin:
         """
         vowels = ("a", "e", "i", "o", "u")
         # Rule 1: begin with a vowels and "xr"/"yt"
-        if word.startswith(vowels) or word.startswith(("xr", "yt")):
-            return word + "ay"
+        if self.word.startswith(vowels) or self.word.startswith(("xr", "yt")):
+            return self.word + "ay"
 
         # Rule 3: special case "qu"
-        if word.startswith("qu"):
-            return word[2:] + "quay"
+        if self.word.startswith("qu"):
+            return self.word[2:] + "quay"
 
         # Rule 3: consoante(s) + "qu"
-        for i, letter in enumerate(word):
+        for i, letter in enumerate(self.word):
             if letter in vowels or (letter == "y" and i != 0):
                 #  não pare no 'u' após 'q'
-                if letter == "u" and i > 0 and word[i - 1] == "q":
+                if letter == "u" and i > 0 and self.word[i - 1] == "q":
                     continue
-                return word[i:] + word[:i] + "ay"
+                return self.word[i:] + self.word[:i] + "ay"
 
         # (caso não encontre vogal nem 'y')
-        return word + "ay"
+        return self.word + "ay"
