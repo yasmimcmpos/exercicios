@@ -1,8 +1,10 @@
-#Se listarmos todos os números naturais abaixo de 10 que são múltiplos de 3 ou 5, obtemos 3, 5, 6 e 9.
-# A soma desses múltiplos é 23. Encontre a soma de todos os múltiplos de 3 ou 5 abaixo de 1000.
+# Se listarmos todos os números naturais abaixo de 10 que são múltiplos
+# de 3 ou 5, obtemos 3, 5, 6 e 9.
+# A soma desses múltiplos é 23. Encontre a soma de todos os múltiplos
+# de 3 ou 5 abaixo de 1000.
 
 
-def calculo(limite):
+def calculo(limite) -> None:
     soma = 0
 
     for i in range(1, limite):
@@ -11,5 +13,6 @@ def calculo(limite):
             soma += i
 
     print(f"soma = {soma}")
+
 
 calculo(1000)

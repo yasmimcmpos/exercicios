@@ -153,9 +153,6 @@ class RationalNumber:  # o nome depende do padrão da empresa: Python Racio_Num
             )
 
         if isinstance(other, (int, float)):
-            # return(
-            #     self.numerator == other[0] and self.denominator == other[1]
-            # )
             return False
 
         raise ValueError(f"other cannot be of class: {type(other)}")
