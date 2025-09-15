@@ -6,19 +6,40 @@
 # # Para isso, teste se ele não é divisível por nenhum número entre 2 e a
 # # raiz quadrada dele
 
-# #Mantenha uma contagem de quantos primos você encontrou.
 
-# Toda vez que encontrar um primo, aumente a contagem.
+def is_prime(n: int) -> bool:
+    """Check if a number n is prime.
 
-# Quando chegar no 10.001º primo, pare e guarde esse número.
+    Args:
+        n (int): The number to check.
+
+    Returns:
+        bool: True if n is prime, False otherwise.
+
+    Examples:
+        >>> is_prime(7)
+        True
+        >>> is_prime(8)
+        False
+    """
+    if n < 2:
+        return False
+    for i in range(2, int(n**0.5) + 1):
+        if n % i == 0:
+            return False
+    return True
 
 
-class PositionPrimeNumber:
-    def __init__(self, prime: int) -> None:
-        self.prime = prime
+def find_prime_at_position(target_position: int) -> int:
+    """Find the prime number at the given position in the sequence of primes.
+    Example: position 6 -> 13
+    """
+    count = 0
+    number = 1
 
-    def is_prime(self, num):
-        # verificar s é primo
+    while count < target_position:
+        number += 1
+        if is_prime(number):
+            count += 1
 
-    def find_prime(self, nth):
-        # encontra a posição 10001 do primo
+    return number
