@@ -13,7 +13,7 @@ from exercicios.ex16 import find_prime_at_position
     ],
 )
 def test_find_prime_at_position(position: int, expected: int) -> None:
-    # Teste se find_prime_at_position retorna o número primo correto em
+    # Teste se find_prime_at_position retorna o num primo correto em
     # uma posição
     assert find_prime_at_position(position) == expected
 

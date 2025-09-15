@@ -7,7 +7,7 @@
 # # raiz quadrada dele
 
 
-def is_prime(n: int) -> bool:
+def is_prime(number: int) -> bool:
     """Check if a number n is prime.
 
     Args:
@@ -22,11 +22,13 @@ def is_prime(n: int) -> bool:
         >>> is_prime(8)
         False
     """
-    if n < 2:
+    if number < 2:
         return False
-    for i in range(2, int(n**0.5) + 1):
-        if n % i == 0:
+
+    for i in range(2, int(number**0.5) + 1):
+        if number % i == 0:
             return False
+
     return True
 
 
@@ -35,11 +37,11 @@ def find_prime_at_position(target_position: int) -> int:
     Example: position 6 -> 13
     """
     count = 0
-    number = 1
+    possible_prime = 1
 
     while count < target_position:
-        number += 1
-        if is_prime(number):
+        possible_prime += 1
+        if is_prime(possible_prime):
             count += 1
 
-    return number
+    return possible_prime
