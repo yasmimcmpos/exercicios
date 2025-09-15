@@ -1,11 +1,5 @@
 # # What is the 10_001st prime number?
 
-# # Calcular os numeros primos
-# # percorrer todos os primos até a posição 10001
-# # dizer qual é o numero da posição
-# # Para isso, teste se ele não é divisível por nenhum número entre 2 e a
-# # raiz quadrada dele
-
 
 def is_prime(number: int) -> bool:
     """Check if a number n is prime.
@@ -25,8 +19,8 @@ def is_prime(number: int) -> bool:
     if number < 2:
         return False
 
-    for i in range(2, int(number**0.5) + 1):
-        if number % i == 0:
+    for index in range(2, int(number**0.5) + 1):
+        if not number % index:
             return False
 
     return True
