@@ -24,7 +24,6 @@ def is_balanced(code: str) -> bool:
         "(": ")",
         "[": "]",
         "{": "}",
-        "<": ">",
     }
     closing = opening.values()
 
