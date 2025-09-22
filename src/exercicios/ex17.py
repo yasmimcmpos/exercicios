@@ -26,6 +26,7 @@ def is_balanced(code: str) -> bool:
         "{": "}",
     }
     closing = opening.values()
+    # Variável que guarda o que já foi calculado
 
     for char in code:
         if char in opening:
