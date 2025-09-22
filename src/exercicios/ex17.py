@@ -1,6 +1,3 @@
-from typing import List
-
-
 def is_balanced(code: str) -> bool:
     """
     Verifica se brackets, braces e parentheses estão balanceados em uma string.
@@ -22,14 +19,19 @@ def is_balanced(code: str) -> bool:
         >>> is_balanced("((())")
         False
     """
-    stack: List[str] = []  # Pilha - LIFO
-    opening = {"(": ")", "[": "]", "{": "}"}
-    closing = {")", "]", "}"}
+    stack: list[str] = []  # Pilha - LIFO
+    opening = {
+        "(": ")",
+        "[": "]",
+        "{": "}",
+        "<": ">",
+    }
+    closing = opening.values()
 
     for char in code:
         if char in opening:
             stack.append(opening[char])
-        elif char in closing:
-            if not stack or char != stack.pop():
-                return False
+        elif char in closing and (not stack or char != stack.pop()):
+            return False
+
     return not stack
