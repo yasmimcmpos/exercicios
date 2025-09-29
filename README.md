@@ -39,3 +39,8 @@ A função foldl
 faz isso: ela começa com um valor inicial (acumulador) e vai combinando
 esse valor com os elementos da lista, um por um, usando uma função
  que você fornece.
+
+ O que é recursividade?
+
+Recursividade é quando uma função chama a si mesma para resolver um problema.
+A ideia é quebrar um problema grande em problemas menores, até chegar em um caso simples (chamado de caso base) que pode ser resolvido diretamente.
