@@ -1,6 +1,5 @@
-# Trigêmeo pitagórico especial - https://projecteuler.net/problem=9
+# Trigêmeo pitagórico especial - https://projecteuler.net/problem=9.
 # Um trigêmeo pitagórico é um conjunto de três números naturais, a < b< c
-# para os quais
 
 
 def verificar_trigemeo(
@@ -50,6 +49,7 @@ def encontrar_trigemeo_pitagorico(soma_alvo: int) -> tuple[int, int, int]:
         a < b < c. Retorna (0, 0, 0) se nenhum trígêmeo for encontrado.
 
     """
+    result = (0, 0, 0)
 
     for a in range(1, soma_alvo // 3):  # a < b< c
         for b in range(a + 1, soma_alvo // 2):
@@ -59,6 +59,11 @@ def encontrar_trigemeo_pitagorico(soma_alvo: int) -> tuple[int, int, int]:
                 continue
 
             if verificar_trigemeo(a, b, c):
-                return a, b, c
+                result = (a, b, c)
 
-    return (0, 0, 0)
+                break
+
+        if any(result):
+            break
+
+    return result
