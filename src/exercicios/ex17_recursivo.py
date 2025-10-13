@@ -24,7 +24,10 @@ def is_balanced(code: str) -> bool:
         "{": "}",
     }
 
-    def check(index: int, stack: list[str]) -> bool:
+    def check(
+        index: int,
+        stack: list[str],
+    ) -> bool:
         """Função recursiva auxiliar que verifica se a string está balanceada
         a partir de uma posição específica.
 
@@ -63,7 +66,7 @@ def is_balanced(code: str) -> bool:
                 stack + [pairs[char]],
             )
 
-        elif char in pairs.values():
+        if char in pairs.values():
             return (
                 bool(stack)
                 and char == stack[-1]
@@ -73,7 +76,6 @@ def is_balanced(code: str) -> bool:
                 )
             )
 
-        else:
-            return check(index + 1, stack)
+        return check(index + 1, stack)
 
     return check(0, [])

@@ -45,3 +45,9 @@ def test_mixed_with_text() -> None:
     assert is_balanced("array[index] + dict{key}")
     assert is_balanced("if (condition) { do_something(); }")
     assert not is_balanced("unclosed function(param")
+
+
+def test_complex_latex_expression() -> None:
+    assert is_balanced(
+        "\\left(\\begin{array}{cc} \\frac{1}{3} & x\\\\ \\mathrm{e}^{x} &... x^2 \\end{array}\\right)"
+    )
