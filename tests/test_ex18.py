@@ -6,7 +6,7 @@ from exercicios.ex18 import encontrar_trigemeo_pitagorico, verificar_trigemeo
 @pytest.mark.parametrize(
     "total, expected_product",
     [
-        (1000, 31875000),
+        (1_000, 31_875_000),
         (30, 780),
         (12, 60),
     ],
