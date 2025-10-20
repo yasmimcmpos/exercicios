@@ -5,8 +5,7 @@
 
 
 def fatores_primos(n: int) -> list[int]:
-    """
-    Retorna uma lista com os fatores primos de um número natural n.
+    """Retorna uma lista com os fatores primos de um número natural n.
     Otimizado para números grandes.
 
     Args:
