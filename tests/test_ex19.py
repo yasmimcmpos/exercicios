@@ -16,12 +16,12 @@ def test_fatores_primos_basicos() -> None:
 
 
 def test_fatores_primos_numero_grande() -> None:
-    n = 1000003 * 1000033
+    n = 1_000_003 * 1_000_033
     inicio = time()
     fatores = fatores_primos(n)
     duracao = time() - inicio
 
-    assert fatores == [1000003, 1000033]
+    assert fatores == [1_000_003, 1_000_033]
     assert duracao < 1.0, f"Muito lento: {duracao:.4f}s"
 
 
