@@ -28,7 +28,7 @@ def fatores_primos(n: int) -> list[int]:
 
     divisor = 3
 
-    while divisor <= n // divisor:
+    while divisor <= n // divisor:  # só verifica até raiz de n
         while n % divisor == 0:
             fatores.append(divisor)
             n //= divisor
