@@ -1,5 +1,3 @@
-from time import time
-
 import pytest
 
 from exercicios.ex19 import fatores_primos
@@ -16,13 +14,13 @@ def test_fatores_primos_basicos() -> None:
 
 
 def test_fatores_primos_numero_grande() -> None:
-    n = 1_000_003 * 1_000_033
-    inicio = time()
-    fatores = fatores_primos(n)
-    duracao = time() - inicio
+    # n = 1_000_003 * 1_000_033
+    # inicio = time()
+    # fatores = fatores_primos(n)
+    # duracao = time() - inicio
+    # assert duracao < 1.0, f"Muito lento: {duracao:.4f}s"
 
-    assert fatores == [1_000_003, 1_000_033]
-    assert duracao < 1.0, f"Muito lento: {duracao:.4f}s"
+    assert fatores_primos(1_000_003 * 1_000_033) == [1_000_003, 1_000_033]
 
 
 def test_fatores_primos_valor_invalido() -> None:

@@ -4,7 +4,7 @@
 # Roda bem para números até cerca de 10^12 – 10^14
 
 
-def fatores_primos(n: int) -> list[int]:
+def fatores_primos(valor: int) -> list[int]:
     """Retorna uma lista com os fatores primos de um número natural n.
     Otimizado para números grandes.
 
@@ -17,24 +17,24 @@ def fatores_primos(n: int) -> list[int]:
     Raises:
         ValueError: Se n <= 1
     """
-    if n <= 1:
+    if valor <= 1:
         raise ValueError("O número deve ser maior que 1.")
 
     fatores: list[int] = []
 
-    while n % 2 == 0:
+    while not valor % 2:  # Evitar fazer comparação com 0 - Mais comum no python
         fatores.append(2)
-        n //= 2
+        valor //= 2
 
     divisor = 3
 
-    while divisor <= n // divisor:  # só verifica até raiz de n
-        while n % divisor == 0:
+    while divisor <= valor // divisor:  # só verifica até raiz de n
+        while valor % divisor == 0:
             fatores.append(divisor)
-            n //= divisor
+            valor //= divisor
         divisor += 2
 
-    if n > 1:
-        fatores.append(n)
+    if valor > 1:
+        fatores.append(valor)
 
     return fatores
