@@ -34,7 +34,7 @@ def fatores_primos(valor: int) -> list[int]:
             valor //= divisor
         divisor += 2
 
-    if valor > 1:
+    if 1 < valor:  # melhor para linguagens de baixo nivel
         fatores.append(valor)
 
     return fatores
