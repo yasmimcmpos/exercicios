@@ -3,10 +3,19 @@
 # Fazer o calculo para exibir o resultado/ depois o test
 
 
-class sum_primes:
-    def __init__(self, prime:int) -> None:
-        self.prime = prime
+def is_prime(number: int) -> bool:
+    if number < 2:
+        return False
 
-    def calc_prime_numbers(self, number:int) -> None:
-        for number in range(2,10):
-            if 0 == i % 1 or 0 == i % i:
+    for index in range(2, int(number**0.5) + 1):
+        if not number % index:
+            return False
+
+    return True
+
+
+def sum_primes(limit: int) -> int:
+    total = 0
+    for number in range(2, limit + 1):
+        total += number
+    return total

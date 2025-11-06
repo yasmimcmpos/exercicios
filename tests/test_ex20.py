@@ -1,4 +1,4 @@
-from exercicios.ex20 import sum_primes
+from exercicios.ex20 import is_prime
 
 def test_sum_of_primes:
-    assert sum_primes(2_000_000) = 
+    assert is_prime (2_000_000)
