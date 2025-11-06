@@ -1,3 +1,4 @@
+from exercicios.ex20 import sum_primes
 from exercicios.ex6 import maior_palindromo, se_e_palindromo
 
 
