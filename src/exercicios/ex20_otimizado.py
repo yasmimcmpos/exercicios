@@ -39,9 +39,7 @@ def sum_primes(limit: int) -> int:
     #Começa pelo 2
     #Testa só os impares a partir do 3 de dois em dois
     """
-    total = 2
-    for number in range(3, limit + 1, 2):
-        if is_prime(number):
-            total += number
+    if limit < 2:
+        return 0
 
-    return total
+    return sum([2] + [number for number in range(3, limit + 1, 2) if is_prime(number)])
