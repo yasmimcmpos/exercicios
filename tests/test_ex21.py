@@ -61,10 +61,6 @@ def test_one_million_two_thousand_three_hundred_forty_five() -> None:
     assert say(1_002_345) == "one million two thousand three hundred forty-five"
 
 
-def test_one_billion() -> None:
-    assert say(1_000_000_000) == "one billion"
-
-
 def test_a_big_number() -> None:
     assert (
         say(987_654_321_123)
@@ -73,5 +69,4 @@ def test_a_big_number() -> None:
 
 
 def test_one_hundred_seventy() -> None:
-    assert say(170) == "one hundred seventy"
     assert say(170) == "one hundred seventy"

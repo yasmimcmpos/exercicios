@@ -24,7 +24,7 @@ NUMEROS = (
 )
 
 DECIMOS = (
-    None,
+    None,  # placehoders
     None,
     "twenty",
     "thirty",
@@ -75,7 +75,7 @@ def tres_digitos(tres_digitos: int) -> str:
     return " ".join(palavras)
 
 
-def say(num: int) -> str:
+def say(value: int) -> str:
     """Converte números de 0 a 999.999.999.999 em palavras.
 
     Args:
@@ -95,30 +95,27 @@ def say(num: int) -> str:
         >>> say(1234)
         'one thousand two hundred thirty-four'
     """
-    if type(num) is not int:
+    if value < 0 or value > 999_999_999_999:
         raise ValueError("input out of range")
 
-    if num < 0 or num > 999_999_999_999:
-        raise ValueError("input out of range")
-
-    if num == 0:
+    if not value:  # +intuitivo
         return "zero"
 
-    if num < 1000:
-        return tres_digitos(num)
+    if value < 1_000:
+        return tres_digitos(value)
 
     palavras: list[str] = []
 
     for valor_escala, nome_escala in ESCALAS:
-        if valor_escala > 1 and num >= valor_escala:
-            grupo, num = divmod(num, valor_escala)
+        if valor_escala > 1 and value >= valor_escala:
+            grupo, value = divmod(value, valor_escala)
             palavras.append(tres_digitos(grupo))
 
             if nome_escala:
                 palavras.append(nome_escala)
 
-        elif valor_escala == 1 and num > 0:
-            palavras.append(tres_digitos(num))
+        elif valor_escala == 1 and value > 0:
+            palavras.append(tres_digitos(value))
 
             break
 
