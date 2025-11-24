@@ -1,6 +1,6 @@
 # Exercism - Say: https://exercism.org/tracks/python/exercises/say
 
-NUMEROS = [
+NUMEROS = (
     "zero",
     "one",
     "two",
@@ -21,11 +21,11 @@ NUMEROS = [
     "seventeen",
     "eighteen",
     "nineteen",
-]
+)
 
-DECIMOS = [
-    "",
-    "",
+DECIMOS = (
+    None,
+    None,
     "twenty",
     "thirty",
     "forty",
@@ -34,18 +34,17 @@ DECIMOS = [
     "seventy",
     "eighty",
     "ninety",
-]
+)
 
-ESCALAS = [
+ESCALAS = (
     (10**9, "billion"),
     (10**6, "million"),
     (10**3, "thousand"),
-    (1, ""),
-]
+)
 
 
 def tres_digitos(tres_digitos: int) -> str:
-    """Converte um número de 0 a 999 em palavras em inglês.
+    """Converte um número de 0 a 999 em palavras.
 
     Args:
         n: Número inteiro entre 0 e 999
@@ -63,10 +62,13 @@ def tres_digitos(tres_digitos: int) -> str:
     if resto:
         if resto < 20:
             palavras.append(NUMEROS[resto])
+
         else:
             dezenas, unidades = divmod(resto, 10)
+
             if unidades:
                 palavras.append(f"{DECIMOS[dezenas]}-{NUMEROS[unidades]}")
+
             else:
                 palavras.append(DECIMOS[dezenas])
 
@@ -74,7 +76,7 @@ def tres_digitos(tres_digitos: int) -> str:
 
 
 def say(num: int) -> str:
-    """Converte números de 0 a 999.999.999.999 em palavras em inglês.
+    """Converte números de 0 a 999.999.999.999 em palavras.
 
     Args:
         n: Número inteiro a ser convertido
@@ -111,10 +113,13 @@ def say(num: int) -> str:
         if valor_escala > 1 and num >= valor_escala:
             grupo, num = divmod(num, valor_escala)
             palavras.append(tres_digitos(grupo))
+
             if nome_escala:
                 palavras.append(nome_escala)
+
         elif valor_escala == 1 and num > 0:
             palavras.append(tres_digitos(num))
+
             break
 
     return " ".join(palavras)
