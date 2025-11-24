@@ -107,16 +107,12 @@ def say(value: int) -> str:
     palavras: list[str] = []
 
     for valor_escala, nome_escala in ESCALAS:
-        if valor_escala > 1 and value >= valor_escala:
+        if value >= valor_escala:
             grupo, value = divmod(value, valor_escala)
             palavras.append(tres_digitos(grupo))
+            palavras.append(nome_escala)
 
-            if nome_escala:
-                palavras.append(nome_escala)
-
-        elif valor_escala == 1 and value > 0:
-            palavras.append(tres_digitos(value))
-
-            break
+    if value > 0:
+        palavras.append(tres_digitos(value))
 
     return " ".join(palavras)
