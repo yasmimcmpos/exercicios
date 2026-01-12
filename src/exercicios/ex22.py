@@ -9,6 +9,10 @@ from operator import mul
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent
+# Python procura o arquivo no lugar de onde o programa foi executado,
+# não onde o arquivo está.
+# Com o Path o CSV fica junto deste código, não importa de onde
+# o programa foi rodado.
 
 
 def load_grid(filename: str | Path) -> list[list[int]]:
@@ -36,19 +40,33 @@ def load_grid(filename: str | Path) -> list[list[int]]:
     return grid
 
 
-def is_valid_start(rows: int, cols: int, row: int, col: int, dr: int, dc: int) -> bool:
+def is_valid_start(
+    rows: int,
+    cols: int,
+    row: int,
+    col: int,
+    dr: int,
+    dc: int,
+) -> bool:
     """Verifica se 4 posições cabem no grid a partir de uma coordenada e direção.
 
     Returns:
         bool: Confere se essa posição final ainda está dentro do grid.
     """
+
     end_row = row + dr * 3
     end_col = col + dc * 3
 
     return 0 <= end_row < rows and 0 <= end_col < cols
 
 
-def get_group(grid: list[list[int]], row: int, col: int, dr: int, dc: int) -> list[int]:
+def get_group(
+    grid: list[list[int]],
+    row: int,
+    col: int,
+    dr: int,
+    dc: int,
+) -> list[int]:
     """Retorna os 4 números adjacentes a partir de uma posição e direção.
 
     Args:
@@ -62,10 +80,15 @@ def get_group(grid: list[list[int]], row: int, col: int, dr: int, dc: int) -> li
         (row,col) = return (Pegue o número que está k passos à frente,
         indo na direção (dr, dc) a partir de (row, col).”)
     """
+
     return [grid[row + dr * k][col + dc * k] for k in range(4)]
 
 
-def find_greatest_product(grid: list[list[int]]) -> tuple[int, list[int], str]:
+def find_greatest_product(grid: list[list[int]]) -> tuple[
+    int,
+    list[int],
+    str,
+]:
     """Encontra o maior produto de quatro números adjacentes no grid.
 
     Args:
@@ -76,6 +99,7 @@ def find_greatest_product(grid: list[list[int]]) -> tuple[int, list[int], str]:
         Obs.: Para fazer as setas usamos (Ctrl+Shift+(posição))
         Ex.: Ctrl + Shift + U + 2199 + Enter
     """
+
     rows = len(grid)
     cols = len(grid[0])
 
