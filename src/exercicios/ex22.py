@@ -3,16 +3,6 @@
 # direction (up, down, left, right, or diagonally) in different directions.
 # Qual é o maior produto de numeros adjacentes na mesma direção
 
-# Variável maior = 0
-# Percorrer cada posição do grid
-# Para cada direção válida
-# Se existem 4 posições
-# Calcular produto
-# Se produto > maior
-# salvar produto e grupo
-# Retornar maior
-
-
 import csv
 from functools import reduce
 from operator import mul
@@ -22,7 +12,7 @@ BASE_DIR = Path(__file__).resolve().parent
 
 
 def load_grid(filename: str | Path) -> list[list[int]]:
-    """Lê um arquivo CSV com números inteiros e o converte em uma matriz
+    """Lê um =arquivo CSV com números inteiros e o converte em uma matriz
     (lista de lista)
 
     Args:
