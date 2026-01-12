@@ -12,7 +12,7 @@ BASE_DIR = Path(__file__).resolve().parent
 
 
 def load_grid(filename: str | Path) -> list[list[int]]:
-    """Lê um =arquivo CSV com números inteiros e o converte em uma matriz
+    """Lê um arquivo CSV com números inteiros e o converte em uma matriz
     (lista de lista)
 
     Args:
@@ -68,8 +68,13 @@ def get_group(grid: list[list[int]], row: int, col: int, dr: int, dc: int) -> li
 def find_greatest_product(grid: list[list[int]]) -> tuple[int, list[int], str]:
     """Encontra o maior produto de quatro números adjacentes no grid.
 
+    Args:
+        grid: Grade bidimensional de inteiros
+
     Returns:
-        tuple[int, list[int], str]: Entrega o resultado final.
+        Tupla contendo (maior_produto, grupo_de_números, direção)
+        Obs.: Para fazer as setas usamos (Ctrl+Shift+(posição))
+        Ex.: Ctrl + Shift + U + 2199 + Enter
     """
     rows = len(grid)
     cols = len(grid[0])
