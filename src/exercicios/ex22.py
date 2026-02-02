@@ -8,14 +8,8 @@ from functools import reduce
 from operator import mul
 from pathlib import Path
 
-BASE_DIR = Path(__file__).resolve().parent
-# Python procura o arquivo no lugar de onde o programa foi executado,
-# não onde o arquivo está.
-# Com o Path o CSV fica junto deste código, não importa de onde
-# o programa foi rodado.
 
-
-def load_grid(filename: str | Path) -> list[list[int]]:
+def load_grid(filename: Path) -> list[list[int]]:
     """Lê um arquivo CSV com números inteiros e o converte em uma matriz
     (lista de lista)
 
@@ -25,14 +19,10 @@ def load_grid(filename: str | Path) -> list[list[int]]:
     Returns:
         Matriz bidimensional de inteiros.
     """
-    path = Path(filename)
-
-    if not path.is_absolute():
-        path = BASE_DIR / path
 
     grid: list[list[int]] = []
 
-    with open(path, newline="") as f:
+    with open(filename, newline="") as f:
         reader = csv.reader(f)
         for row in reader:
             grid.append([int(x) for x in row])

@@ -1,10 +1,11 @@
 from exercicios.ex22 import find_greatest_product, load_grid
-
-EXPECTED = 70600674
-
+from os.path import join
 
 def test_find_max_prod() -> None:
-    grid = load_grid("grid.csv")
+    test_dir = Path(__file__).resolve()
+    project_dir = test_dir.parent
+    filename = join(project_dir, "data", "grid.csv")
+    grid = load_grid(filename)
     result, group, direction = find_greatest_product(grid)
 
     assert result == 70600674
