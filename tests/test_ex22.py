@@ -8,6 +8,6 @@ def test_find_max_prod() -> None:
     grid = load_grid(filename)
     result, group, direction = find_greatest_product(grid)
 
-    assert result == 70600674
+    assert result == 70_600_674
     assert set(group) == {87, 97, 94, 89}
     assert direction in {"↘", "↙"}
