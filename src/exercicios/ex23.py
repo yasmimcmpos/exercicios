@@ -1,6 +1,6 @@
 # https://exercism.org/tracks/python/exercises/acronym
 # Convert a phrase to its a acronym
-import re
+from re import sub
 
 
 def convert(phrase: str) -> str:
@@ -31,12 +31,6 @@ def convert(phrase: str) -> str:
         \s - espaços, tabs..
 
     """
-    phrase = phrase.replace("-", " ")
+    cleansed = sub(r"[^A-Za-z\s]", "", phrase.replace("-", " "))
 
-    phrase = re.sub(r"[^A-Za-z\s]", "", phrase)
-
-    words = phrase.split()
-
-    acronym_letters = [word[0].upper() for word in words]
-
-    return "".join(acronym_letters)
+    return "".join([word[0].upper() for word in cleansed.split()])

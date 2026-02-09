@@ -12,6 +12,7 @@
   "python.analysis.typeCheckingMode": "strict",
   "python.defaultInterpreterPath": ".venv/bin/python",
   "python.radon.enable": true,
+  "python.radon.executable": "./.venv/bin/radon",
   "[python]": {
     "editor.tabSize": 4,
     "editor.insertSpaces": true,
