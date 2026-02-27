@@ -1,6 +1,8 @@
 # https://projecteuler.net/problem=12
 # Find the value of the first triangle number to have over five hundred divisors
 
+from math import prod
+
 from exercicios.ex19 import fatores_primos
 
 
@@ -16,10 +18,7 @@ def number_of_divisors(prime_factors: dict[int, int]) -> int:
     Returns:
         int: Quantidade total de divisores positivos do número.
     """
-    total = 1
-    for exponent in prime_factors.values():
-        total *= exponent + 1
-    return total
+    return prod(exponent + 1 for exponent in prime_factors.values())
 
 
 def first_triangular_with_more_than(min_divisors: int) -> int:
@@ -42,6 +41,7 @@ def first_triangular_with_more_than(min_divisors: int) -> int:
     n = 1
 
     while True:
+        # Como fazer sem while true
         if n % 2 == 0:
             a, b = n // 2, n + 1
         else:
