@@ -4,36 +4,54 @@
 from exercicios.ex19 import fatores_primos
 
 
-def quantidade_divisores(fatores: dict) -> int:
+def number_of_divisors(prime_factors: dict[int, int]) -> int:
+    """
+    Calcula o número total de divisores de um número a partir
+    da sua fatoração prima.
+
+    Args:
+        prime_factors (dict): Dicionário contendo os fatores primos como chave
+        e seus respectivos expoentes como valor.
+
+    Returns:
+        int: Quantidade total de divisores positivos do número.
+    """
     total = 1
-    for expoente in fatores.values():
-        total *= expoente + 1
+    for exponent in prime_factors.values():
+        total *= exponent + 1
     return total
 
 
-def primeiro_triangular_com_mais_de(min_divisores: int) -> int:
+def first_triangular_with_more_than(min_divisors: int) -> int:
+    """
+    Encontra o primeiro número triangular que possui mais do que
+    'min_divisors' divisores.
+
+    Args:
+        min_divisors (int): Número mínimo de divisores desejado.
+
+    Returns:
+        int: O primeiro número triangular com mais do que
+        'min_divisors' divisores.
+
+    Exemplos:
+    n for par a = n//2, enquanto b = n+1
+    n for impar a = n, então b = (n+1)//2
+
+    """
     n = 1
 
     while True:
-        # Estratégia otimizada
         if n % 2 == 0:
-            a = n // 2
-            b = n + 1
+            a, b = n // 2, n + 1
         else:
-            a = n
-            b = (n + 1) // 2
+            a, b = n, (n + 1) // 2
 
-        fatores_a = fatores_primos(a)
-        fatores_b = fatores_primos(b)
+        total_divisors = number_of_divisors(fatores_primos(a)) * number_of_divisors(
+            fatores_primos(b)
+        )
 
-        # Combinar fatorações (porque são coprimos)
-        fatores_totais = fatores_a.copy()
-        for primo, expoente in fatores_b.items():
-            fatores_totais[primo] = fatores_totais.get(primo, 0) + expoente
-
-        total_divisores = quantidade_divisores(fatores_totais)
-
-        if total_divisores > min_divisores:
+        if total_divisors > min_divisors:
             return n * (n + 1) // 2
 
         n += 1
