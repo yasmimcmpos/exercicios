@@ -1,3 +1,5 @@
+import pytest
+
 from exercicios.ex25 import slices
 
 
@@ -35,30 +37,29 @@ def test_slices_of_a_long_series() -> None:
 
 
 def test_slice_length_is_too_large() -> None:
-    with raises(ValueError) as err:
+    with pytest.raises(
+        ValueError, match="slice length cannot be greater than series length"
+    ):
         slices("12345", 6)
-    assert str(err.value) == "slice length cannot be greater than series length"
 
 
 def test_slice_length_is_way_too_large() -> None:
-    with raises(ValueError) as err:
+    with pytest.raises(
+        ValueError, match="slice length cannot be greater than series length"
+    ):
         slices("12345", 42)
-    assert str(err.value) == "slice length cannot be greater than series length"
 
 
 def test_slice_length_cannot_be_zero() -> None:
-    with raises(ValueError) as err:
+    with pytest.raises(ValueError, match="slice length cannot be zero"):
         slices("12345", 0)
-    assert str(err.value) == "slice length cannot be zero"
 
 
 def test_slice_length_cannot_be_negative() -> None:
-    with raises(ValueError) as err:
+    with pytest.raises(ValueError, match="slice length cannot be negative"):
         slices("123", -1)
-    assert str(err.value) == "slice length cannot be negative"
 
 
 def test_empty_series_is_invalid() -> None:
-    with raises(ValueError) as err:
+    with pytest.raises(ValueError, match="series cannot be empty"):
         slices("", 1)
-    assert str(err.value) == "series cannot be empty"
