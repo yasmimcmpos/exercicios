@@ -14,9 +14,4 @@ def slices(series: str, length: int) -> list[str]:
     if length > len(series):
         raise ValueError("slice length cannot be greater than series length")
 
-    result: list[str] = []
-
-    for i in range(len(series) - length + 1):
-        result.append(series[i : i + length])
-
-    return result
+    return [series[i : i + length] for i in range(len(series) - length + 1)]
